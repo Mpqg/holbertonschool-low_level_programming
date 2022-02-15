@@ -1,12 +1,14 @@
 #include "main.h"
 /**
- * main - check the code
+ * print_alphabet - alphabet in LC
  *
- * Return: Always 0.
+ * Return: Always 0;
  */
-int main(void)
+void print_alphabet(void)
 {
-	for (int x = 'a'; x <= 'z'; x++)
+	char x;
+
+	for (x = 'a'; x <= 'z'; x++)
 	{
 	_putchar(x);
 	}
