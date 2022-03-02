@@ -1,33 +1,39 @@
 #include "main.h"
 
 /**
- * squareroot - square root of 2 numbers
- * @a: number
- * @b: number to test
+ * root_square - Finds the square root of two numbers
  *
- * Returns: Always 0
- */
-
-int squareroot(int a, int b)
-{
-	if (b * b > a)
-		return (-1),
-			   if (b * b == a) return (b);
-	return (squareroot(a, b + 1));
-}
-
-#include "main.h"
-
-/**
- * _sqrt_recursion -   returns the natural square root of a number.
+ * @a: The number
+ * @b: The number to test for the square root of @a
  *
- * @n: number to return root
  * Return: Always 0
  */
-int _sqrt_recursion(int n)
+
+int root_square(int a, int b)
 {
-	if (n < 0)
+	if (b * b > a)
 		return (-1);
 
-	return (squareroot(n, 0));
+	else if (b * b == a)
+		return (b);
+
+	else
+		return (root_square(a, b + 1));
+
+	return (1);
+}
+
+/**
+ * _sqrt_recursion - returns the natural square root of a number
+ *
+ * @n: the number to return the square root of
+ *
+ * Return: the square root of @n
+ */
+
+int _sqrt_recursion(int n)
+{
+	if (n == 0)
+		return (0);
+	return (root_square(n, 1));
 }
