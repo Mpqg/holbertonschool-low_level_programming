@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+/**
+ * main - prints its name
+ *
+ * @argc: number of imputs
+ * @argv: array
+ * Return: Always 0
+ */
+
 int main(__attribute__((unused)) int argc, char *argv[])
 {
 	printf("%s\n", argv[0]);
