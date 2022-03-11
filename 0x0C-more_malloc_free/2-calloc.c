@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * calloc - function
+ * _calloc - function allocates an array
  * @size: size of each element
  * @nmemb: number of members
  *
@@ -20,9 +20,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	s = malloc(size * nmemb);
 	if (!s)
 		return (NULL);
-	
+
 	for (i = 0; i < nmemb; i++)
-	s[i] = 0;
+		s[i] = 0;
 
 	return ((void *)s);
 }
