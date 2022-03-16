@@ -3,7 +3,10 @@
 #include "dog.h"
 /**
  * new_dog -  creates a new dog
- * @d: pointer struct of dog
+ *
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: name of owner
  *
  * Return: Always 0
  */
@@ -20,6 +23,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		lenOwner++;
 
 	dog_t *dog;
+
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
@@ -31,9 +35,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog->owner = malloc(sizeof(char) * (lenOwner + 1));
 	if (dog->owner == NULL)
 		return (NULL);
-	
+
 	dog->age = age;
-	
+
 	_strcpy(dog->name, name);
 	_strcpy(dog->owner, owner);
 
