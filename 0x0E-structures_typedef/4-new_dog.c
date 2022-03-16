@@ -13,6 +13,7 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	dog_t *dog;
 	int lenName = 0;
 	int lenOwner = 0;
 
@@ -22,7 +23,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	while (owner[lenOwner])
 		lenOwner++;
 
-	dog_t *dog;
 
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
