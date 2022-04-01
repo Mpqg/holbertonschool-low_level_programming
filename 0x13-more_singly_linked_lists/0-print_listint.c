@@ -17,9 +17,6 @@ size_t print_listint(const listint_t *h)
 		h = h->next;
 		count++;
 	}
-	/**
-	 * Reasign the variable h to the next user
-	 * until there is no next user
-	 */
+
 	return (count);
 }
