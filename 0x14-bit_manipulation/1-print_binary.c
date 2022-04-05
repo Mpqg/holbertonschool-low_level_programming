@@ -12,9 +12,6 @@ void print_binary(unsigned long int n)
 	bit = (sizeof(int) * 8) - 1;
 	i = 0;
 
-	if (n == 0)
-		_putchar('0');
-
 	for (; bit >= 0; bit--)
 	{
 		if (n >> bit & 1)
@@ -25,4 +22,6 @@ void print_binary(unsigned long int n)
 		else if (i)
 			_putchar('0');
 	}
+	if (i == 0)
+		_putchar('0');
 }
