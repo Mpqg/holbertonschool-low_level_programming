@@ -8,16 +8,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int xor = n ^ m;
-	int count = 0;
+	int i, count = 0;
+	unsigned long int current;
+	unsigned long int exclusive = n ^ m;
 
-	if (!n || !m)
-		return (0);
-	while (xor)
+	for (i = 63; i >= 0; i--)
 	{
-		if (xor & 1)
+		current = exclusive >> i;
+		if (current & 1)
 			count++;
-		xor = xor >> 1;
 	}
+
 	return (count);
 }
