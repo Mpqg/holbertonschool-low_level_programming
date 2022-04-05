@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 
 	for (; bit >= 0; bit--)
 	{
-		if (n >> bit & 1)
+		if ((n >> bit) & 1)
 		{
 			_putchar('1');
 			i++;
