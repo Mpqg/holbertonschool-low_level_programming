@@ -7,7 +7,7 @@
  */
 int main(int arg2, char *arg1[])
 {
-	int ffrom, fto, rd, clf, clt;
+	int forigin, fdest, rd, close_Forigin, close_Fdest;
 	char buff[BUFSIZ];
 
 	if (arg2 != 3)
@@ -15,15 +15,15 @@ int main(int arg2, char *arg1[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	ffrom = open(arg1[1], O_RDONLY);
-	if (ffrom == -1)
+	forigin = open(arg1[1], O_RDONLY);
+	if (forigin == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg1[1]);
 		exit(98);
 	}
-	fto = open(arg1[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	while ((rd = read(ffrom, buff, BUFSIZ)) > 0)
-		if (fto == -1 || (write(fto, buff, rd) != rd))
+	fdest = open(arg1[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	while ((rd = read(forigin, buff, BUFSIZ)) > 0)
+		if (fdest == -1 || (write(fdest, buff, rd) != rd))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arg1[2]);
 			exit(99);
@@ -33,14 +33,14 @@ int main(int arg2, char *arg1[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg1[1]);
 		exit(98);
 	}
-	clf = close(ffrom);
-	clt = close(fto);
-	if (clf == -1 || clt == -1)
+	close_Forigin = close(forigin);
+	close_Fdest = close(fdest);
+	if (close_Forigin == -1 || close_Fdest == -1)
 	{
-		if (clf == -1)
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ffrom);
-		else if (clt == -1)
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fto);
+		if (close_Forigin == -1)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", forigin);
+		else if (close_Fdest == -1)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdest);
 		exit(100);
 	}
 	return (0);
