@@ -21,7 +21,7 @@ size_t dlistint_len(const dlistint_t *h)
 /**
  * insert_dnodeint_at_index - inserts a new node at a given position
  * @h: double pointer to the head of a linked list
- * @idx: the position where the new node should be entered
+ * @idx: is the index  where new node should be entered
  * @n: the data to put into the new node
  * Return: the address of the new node, or NULL if it failed
  */
